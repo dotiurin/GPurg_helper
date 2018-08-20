@@ -4,17 +4,19 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 
-
 export default class DomainsThrowdown extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            domains: [],
+            selectedOption: 'select',
+        };
+    }
 
-    state = {
-        domains: [],
-        selectedOption: 'select',
+    handleChange = (event) => {
+        this.setState({ selectedOption: event.target.value });
     };
 
-    handleChange = (selectedOption) => {
-        this.setState({ selectedOption });
-    }
     componentWillMount() {
         this.getDomainItems();
     }
@@ -26,10 +28,11 @@ export default class DomainsThrowdown extends React.Component {
     render() {
         return(
             <div>
-                <p>your domains, sir:</p>
+                <p>Select domain to join, sir:</p>
 
                 <Select
                     value={this.state.selectedOption}
+                    onChange={this.handleChange}
                 >
                     {this.state.domains.map((domain) =>
                         <MenuItem key={domain} value={domain} primaryText={domain}>{domain}</MenuItem>
