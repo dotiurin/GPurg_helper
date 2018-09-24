@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
 import MainPage from './components/mainpage/mainPage';
-import DomainsThrowdown from './components/domains/domains_throwdown';
+import DomainJoinLine from './components/domains/DomainJoinLine';
 
 export default class MainRouter extends React.Component {
     render() {
@@ -11,7 +11,7 @@ export default class MainRouter extends React.Component {
                 <Switch>
                     <Route exact path='/' component={MainPage} />
                     <Route exact path='/home' component={MainPage} />
-                    <Route exact path='/domains' component={DomainsThrowdown} />
+                    <Route exact path='/domains' component={DomainJoinLine} />
                     <Route component='asd' />
                 </Switch>
             </main>
